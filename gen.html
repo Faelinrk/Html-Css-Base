@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Сайт имени Васи Пупкина</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript">
+
+
+        function readInt() {
+
+            var number = +document.getElementById("userAnswer").value;
+            return number;
+
+        }
+
+        function write(text) {
+            document.getElementById("info").innerHTML = text;
+        }
+
+        function hide(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+
+        function getRandomNumber(max) {
+
+            return parseInt(Math.round(Math.random() * max));
+
+        }
+
+        function generate() {
+            var passmassive = [];
+            var n = readInt();
+            var x
+            let arr_en =
+                ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+                    'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+                    'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                    1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+            for (i = 0; i < n; i++) {
+                x = getRandomNumber(arr_en.length - 1);
+                passmassive.push(arr_en[x]);
+
+            }
+            passmassive = passmassive.join("");
+            write(passmassive);
+            
+
+        }
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+    <div class="content">
+
+        <div class="header">
+            <a href="index.html">Главная</a>
+            <a href="guess.html">Угадайка</a>
+            <a href="guess_multiplayer.html">Угадайка-Мультиплеер</a>
+            <a href="puzzle.html">Загадки</a>
+            <a href="gen.html">Генератор случайных паролей</a>
+        </div>
+
+        <div class="content_wrap">
+            <div class="content">
+                <div class="center">
+                    <h1>Игра Угадайка-Мультиплеер</h1>
+
+                    <div class="box">
+
+                        <p id="stepbox">Добро пожаловать в генератор паролей. Введите длину желаемого пароля и нажмите сгенерировать.</p>
+
+
+
+                        <p id="info">Введите желаемую длину пароля.</p>
+                        <input type="text" id="userAnswer" />
+                        <br />
+                        <a href="#" id="button" onclick="generate()">Сгенерировать</a>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="footer">
+        Copyright &copy; V. Pup.
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Сайт имени Васи Пупкина</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript">
+
+        var asknumb = Math.round(Math.random() * 100);
+        var trycount = 1;
+        var maxTryCount = 3;
+
+        function readInt() {
+
+            var number = +document.getElementById("userAnswer").value;
+            return number;
+
+        }
+
+        function write(text) {
+            document.getElementById("info").innerHTML = text;
+        }
+
+        function hide(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        function guess(){
+        
+            if (readInt() == asknumb) {
+                write("Поздравляю! Вы победили!")
+                hide("button");
+                hide("userAnswer");
+            } else if (trycount >= maxTryCount) {
+                write("К сожалению, ваши попытки закончились. Правильный ответ: " + asknumb);
+                hide("button");
+                hide("userAnswer");
+            } else if (readInt() < asknumb){
+                write("Вы ввели слишком маленькое число!");
+                trycount++;
+            } else if (readInt() > asknumb) {
+                write("Вы ввели слишком большое число!");
+                trycount++;
+            }
+
+        }
+
+    </script>
+
+
+
+</head>
+<body>
+    <div class="content">
+
+        <div class="header">
+            <a href="index.html">Главная</a>
+            <a href="guess.html">Угадайка</a>
+            <a href="guess_multiplayer.html">Угадайка-Мультиплеер</a>
+            <a href="puzzle.html">Загадки</a>
+            <a href="gen.html">Генератор случайных паролей</a>
+        </div>
+
+            <div class="content_wrap">
+                <div class="content">
+                    <div class="center">
+                        <h1>Игра Угадайка</h1>
+
+                        <div class="box">
+
+                            <p id="stepbox">Добро пожаловать в игру. Сейчас компьютер загадает вам случайное число. <br />Постарайтесь его угадать! Удачи!</p> 
+                            
+
+
+                            <p id="info">Угадайте число от 0 до 100</p>
+                            <input type="text" id="userAnswer" />
+                            <br />
+                            <a href="#" id="button" onclick="guess();">Начать</a>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            
+    </div>
+
+
+
+
+    <div class="footer">
+        Copyright &copy; V. Pup.
+    </div>
+
+</body>
+</html>
